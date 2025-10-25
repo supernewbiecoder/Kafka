@@ -27,6 +27,8 @@ Với một web nhỏ, kiến trúc đơn giản thì các dịch vụ này có 
 
 >Kafka như một người trung gian làm nhiệm vụ phân phối thông tin cho các dịch vụ khác.
 
+Kafka lưu trữ dữ liệu trong topic logs, và đảm bảo việc truyền tin có thứ tự trong mỗi partition.
+
 Như vậy "Orders" sẽ không còn cần phải đợi Payments, Inventory,... hoàn thành xong công việc của nó rồi mới gửi lên, mà nó tin rằng Kafka sẽ phân phối hết các orders cho 3 thằng kia.  
 :arrow_right: như vậy Orders có thể liên tục nhận order ***(events)*** và gửi cho Kafka.
 
@@ -90,6 +92,10 @@ Kafka được ứng dụng trong lĩnh vực y tế, logistic, marketing,...
 >***Cluster***: Một tập hợp các máy chủ ***Brokers*** bao gồm ít nhất 1 ***Broker*** nhưng thường là nhiều ***Broker*** hoạt động cùng nhau. ***Cluster*** có vai trò quan trọng trong việc cung cấp tính mở rộng, tính nhất quán và độ tin cậy cho việc xử lý dữ liệu thời gian thực.  
 
 >***Broker***: Là thành phần cốt lõi của ***Kafka***, đại diện cho máy chủ xử lý và lưu trữ dữ liệu ***Kafka***. Một cụm ***Kafka*** thường bao gồm nhiều ***Broker*** và mỗi ***Broker*** có thể xử lý sản xuất ***Producer*** và tiêu thụ ***Consumer*** dữ liệu. ***Broker*** chịu trách nhiệm quản lý và lưu trữ các ***Partition*** của các chủ đề ***Topics***. Thời hạn lưu trữ tùy thuộc vào cài đặt.
+
+Mỗi Broker có ID riêng (ví dụ: broker-1, broker-2, …)
+
+Mỗi topic partition sẽ có leader và replica để đảm bảo fault-tolerance.
 
 ---
 
