@@ -10,7 +10,7 @@ Cái này để học về Kafka và cách xây dựng cụm kafka
 Ví dụ:
 Tưởng tượng ta đang xây dựng một ứng dụng thương mại điện tử gồm: Hệ thống đặt hàng, hệ thống thanh toán, tồn kho.
 
-![](img\Consumer_groups.png)
+![](https://github.com/supernewbiecoder/Kafka/blob/main/img/Realistic_example.png)
 
 >Khi ta đặt hàng thì một chuỗi sự kiện sẽ xảy ra như: 
 :arrow_right: Người dùng đặt hàng :arrow_right: Kho hàng được update :arrow_right: email xác nhận được gửi tới khách hàng...
