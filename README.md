@@ -10,20 +10,20 @@ Cái này để học về Kafka và cách xây dựng cụm kafka
 Ví dụ:
 Tưởng tượng ta đang xây dựng một ứng dụng thương mại điện tử gồm: Hệ thống đặt hàng, hệ thống thanh toán, tồn kho.
 
-![](img\Realistic_example.png)
+![](https://github.com/supernewbiecoder/Kafka/blob/main/img/Realistic_example.png)
 
 >Khi ta đặt hàng thì một chuỗi sự kiện sẽ xảy ra như: 
 :arrow_right: Người dùng đặt hàng :arrow_right: Kho hàng được update :arrow_right: email xác nhận được gửi tới khách hàng...
 
 Với một web nhỏ, kiến trúc đơn giản thì các dịch vụ này có thể trực tiếp gọi tới nhau.
 
-![](img\Simple_architecture.png)
+![](https://github.com/supernewbiecoder/Kafka/blob/main/img/Simple_architecture.png)
 
 Điều này sẽ hoàn toàn ổn cho tới khi có một lượng lớn khách hàng truy cập vào hệ thống đó. Giả sử có một dịch vụ gặp trục trặc thì toàn bộ hệ thống đó sẽ gặp trục trặc theo vì các dịch vụ của chúng đều phụ thuộc lẫn nhau.
 
 Để giải quyết vấn đề đó thì ta sẽ dùng Kafka. 
 
-![](img\How_Kafka_works.png)
+![](img\https://github.com/supernewbiecoder/Kafka/blob/main/img/How_Kafka_works.png)
 
 >Kafka như một người trung gian làm nhiệm vụ phân phối thông tin cho các dịch vụ khác.
 
@@ -34,20 +34,21 @@ Như vậy "Orders" sẽ ko còn cần phải đợi Payments, Inventory,... ho�
 
 ___Events___
 
-![](img\Events_structure.png)
+![](https://github.com/supernewbiecoder/Kafka/blob/main/img/Events_structure.png)
 
 >Events sẽ có giá trị là cặp Key_value, đồng thời có cả Metadata, trong đó có thời gian được gửi đến, producer là ai...
 
 ***Topic:***
 
-![](img\Where_to_save_events.png)
+![](https://github.com/supernewbiecoder/Kafka/blob/main/img/Where_to_save_events.png)
 
 Các events sẽ được sắp xếp theo các ***Topic***. Mỗi ***Topic*** là một luồng dữ liệu độc lập và có thể được coi là một danh sách các tin nhắn liên quan.
 
-![](img\Where_to_save_events_1.png)
+![](https://github.com/supernewbiecoder/Kafka/blob/main/img/Where_to_save_events_1.png)
+
 ***Consumer*** sẽ ***Subscribe*** tới ***Topic*** cụ thể và mỗi khi ***Producer*** gửi ***Events*** tới ***Topic*** thì các ***Consumer*** đã ***Subscribe*** với ***Topic*** tương ứng sẽ nhận được thông tin từ Kafka.
 
-![](img\Example_of_topics_in_action.png)
+![](https://github.com/supernewbiecoder/Kafka/blob/main/img/Example_of_topics_in_action.png)
 
 Ví dụ:
 > Khi có đơn hàng mới, hệ thống “Orders” gửi sự kiện vào Orders topic. Các hệ thống khác đăng ký (subscribe) vào topic này để nhận thông tin.
@@ -62,21 +63,21 @@ Giúp hệ thống độc lập, mở rộng dễ dàng và không phụ thuộc
 
 >:arrow_right: Kafka ở đây đóng vai trò như trung tâm liên lạc, đảm bảo mọi dịch vụ đều nhận được dữ liệu mới nhất một cách đáng tin cậy và theo thời gian thực.
 
-![](img\What_is_Kafka.png)
+![](https://github.com/supernewbiecoder/Kafka/blob/main/img/What_is_Kafka.png)
 
 >Như vậy ta có thể coi Kafka là một công cụ cho phép thực hiện các phản ứng dây chuyền trong đó một sự kiện kích hoạt nhiều hành động, bao gồm tạo các sự kiện khác hoặc là update cơ sở dữ liệu.
 
 kafka được ứng dụng trong lĩnh vực y tế, logistic, marketing,...
 
 ***Partition:*** 
-![](img\Partition_in_Kafka.png)
+![](https://github.com/supernewbiecoder/Kafka/blob/main/img/Partition_in_Kafka.png)
 
 
 >Mỗi ***Topic*** có thể được chia thành nhiều phân vùng. ***Partition*** là một phần nhỏ của chủ đề và đóng vai trò quan trọng trong việc phân tán dữ liệu và tăng hiệu suất. Mỗi ***Partition*** được lưu trữ trên một ***Broker*** và dữ liệu được đọc và ghi vào từng ***Partition*** một. ***Consumer*** sử dụng ***offset*** để theo dõi dữ liệu đã đọc.
 
 ***Cluster, Broker:***
 
-![](img\Kafka_cluster.png)
+![](https://github.com/supernewbiecoder/Kafka/blob/main/img/Kafka_cluster.png)
 
 >***Cluster***: Một tập hợp các máy chủ ***Brokers*** bao gồm ít nhất 1 ***Broker*** nhưng thường là nhiều ***Broker*** hoạt động cùng nhau. ***Cluster*** có vai trò quan trọng trong việc cung cấp tính mở rộng, tính nhất quán và độ tin cậy cho việc xử lý dữ liệu thời gian thực.
 
@@ -89,7 +90,7 @@ kafka được ứng dụng trong lĩnh vực y tế, logistic, marketing,...
 
 ***Consumer Groups:***
 
-![](img\Consumer_groups.png)
+![](https://github.com/supernewbiecoder/Kafka/blob/main/img/Consumer_groups.png)
 
 >Bằng việc tạo ra một ***consumer group*** giúp chia đều khối lượng công việc của một chức năng dịch vụ cho các dịch vụ khác. Như các 10 đơn của US Orders có thể chia đều cho Payment 1, Payment 2,...
 
