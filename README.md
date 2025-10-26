@@ -110,3 +110,13 @@ Mỗi topic partition sẽ có leader và replica để đảm bảo fault-toler
 ![](img/Consumer_groups.png)
 
 >Bằng việc tạo ra một ***consumer group*** giúp chia đều khối lượng công việc của một chức năng dịch vụ cho các dịch vụ khác. Như các 10 đơn của US Orders có thể chia đều cho Payment 1, Payment 2,...
+
+
+---
+
+## Set up Kafka
+
+### Điều kiện tiên quyết:
+1. Docker & Docker-compose
+2. Python 3.13
+
