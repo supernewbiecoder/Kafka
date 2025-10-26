@@ -118,5 +118,23 @@ Mỗi topic partition sẽ có leader và replica để đảm bảo fault-toler
 
 ### Điều kiện tiên quyết:
 1. Docker & Docker-compose
-2. Python 3.13
 
+### Quick start
+**1. clone reposistory**
+> git clone https://github.com/supernewbiecoder/Kafka.git
+Sau đó mở git repo và mở bash lên
+
+**2. khởi động docker**
+
+---
+
+**3. tạo một cluster**
+gõ lệnh vào trong bash đó
+> ./scripts/create_cluster.sh
+
+---
+
+**4. thực hiện các lệnh tùy chọn**
+> ./scripts/<tên file trong file scripts>.sh
+
+gồm create_topic, delete_topic, describe_topic, list_topic
